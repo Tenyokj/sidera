@@ -103,6 +103,59 @@ button {
   font-size: 15px;
 }
 
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    rgba(0, 0, 0, 0.34);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 14px 38px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.repo-link:hover,
+.repo-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(127, 217, 255, 0.34);
+  color: rgba(255, 255, 255, 0.96);
+  background:
+    linear-gradient(180deg, rgba(127, 217, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(0, 0, 0, 0.44);
+  box-shadow:
+    inset 0 0 0 1px rgba(127, 217, 255, 0.05),
+    0 18px 42px rgba(0, 0, 0, 0.24),
+    0 0 28px rgba(127, 217, 255, 0.08);
+  outline: none;
+}
+
+.repo-link svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.repo-link span {
+  font-family: "IBM Plex Mono", "SFMono-Regular", "Menlo", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
 .empty-hint {
   position: fixed;
   left: 50%;
