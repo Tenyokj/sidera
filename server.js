@@ -16,6 +16,7 @@ const STATIC_FILES = {
   "/app.js": "app.js",
   "/favicon.svg": "favicon.svg",
   "/favicon.ico": "favicon.svg",
+  "/google44f67e72c2f51b18.html": "google44f67e72c2f51b18.html",
   "/robots.txt": "robots.txt",
   "/sitemap.xml": "sitemap.xml"
 }
