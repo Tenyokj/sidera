@@ -1,0 +1,15 @@
+{
+  "name": "sidera",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.15.15"
+  }
+}

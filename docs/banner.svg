@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520" role="img" aria-labelledby="title desc">
+  <title id="title">Sidera banner</title>
+  <desc id="desc">Dark banner with stars and the Sidera project title.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#050505" />
+      <stop offset="55%" stop-color="#020202" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+
+    <radialGradient id="glowA" cx="28%" cy="22%" r="30%">
+      <stop offset="0%" stop-color="#74d5ff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#74d5ff" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowB" cx="74%" cy="26%" r="26%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowC" cx="66%" cy="72%" r="24%">
+      <stop offset="0%" stop-color="#c48aff" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#c48aff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="520" fill="url(#bg)" />
+  <rect width="1600" height="520" fill="url(#glowA)" />
+  <rect width="1600" height="520" fill="url(#glowB)" />
+  <rect width="1600" height="520" fill="url(#glowC)" />
+
+  <g opacity="0.75">
+    <circle cx="136" cy="92" r="2.2" fill="#ffffff" />
+    <circle cx="232" cy="144" r="1.8" fill="#9edfff" />
+    <circle cx="348" cy="78" r="1.6" fill="#ffd86a" />
+    <circle cx="490" cy="122" r="1.7" fill="#ffffff" />
+    <circle cx="590" cy="82" r="2.8" fill="#9edfff" />
+    <circle cx="724" cy="132" r="1.5" fill="#ffffff" />
+    <circle cx="888" cy="88" r="2.1" fill="#d5a8ff" />
+    <circle cx="1028" cy="142" r="1.7" fill="#ffffff" />
+    <circle cx="1148" cy="106" r="2.5" fill="#83d8ff" />
+    <circle cx="1286" cy="152" r="1.5" fill="#ffffff" />
+    <circle cx="1414" cy="92" r="2" fill="#ffd86a" />
+  </g>
+
+  <g opacity="0.42">
+    <path d="M260 350L520 236L760 318L1020 198L1290 278" fill="none" stroke="#78d8ff" stroke-width="1.6" stroke-linecap="round" />
+    <circle cx="260" cy="350" r="5" fill="#ffffff" />
+    <circle cx="520" cy="236" r="7" fill="#9edfff" />
+    <circle cx="760" cy="318" r="5.5" fill="#ffffff" />
+    <circle cx="1020" cy="198" r="8" fill="#d7f4ff" />
+    <circle cx="1290" cy="278" r="6" fill="#b99aff" />
+  </g>
+
+  <g transform="translate(200 170)">
+    <text
+      x="0"
+      y="0"
+      fill="#ffffff"
+      font-family="Oswald, Arial, sans-serif"
+      font-size="120"
+      letter-spacing="14"
+    >
+      SIDERA
+    </text>
+
+    <text
+      x="4"
+      y="62"
+      fill="#adc2cc"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      letter-spacing="4"
+    >
+      Write it. Launch it. Let it drift.
+    </text>
+
+    <text
+      x="4"
+      y="142"
+      fill="#7d8b92"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      letter-spacing="2"
+    >
+      Anonymous messages become stars in a black cosmic field.
+    </text>
+  </g>
+</svg>

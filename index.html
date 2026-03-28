@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidera</title>
+    <meta
+      name="description"
+      content="Sidera is a black space where anonymous messages become stars and drift forever."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://sidera.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sidera" />
+    <meta
+      property="og:description"
+      content="A black cosmic field where anonymous messages become stars and drift forever."
+    />
+    <meta property="og:url" content="https://sidera.vercel.app/" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg?v=2" />
+    <link rel="shortcut icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Oswald:wght@400;500;600&family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="nebula" class="nebula-canvas" aria-hidden="true"></canvas>
+
+    <aside class="console-panel" aria-label="Live console">
+      <div class="console-head">
+        <p class="panel-label">LIVE CONSOLE</p>
+        <span class="console-state">OPEN FEED</span>
+      </div>
+      <div id="console-feed" class="console-feed"></div>
+      <div class="console-footer">
+        <label class="console-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="M20 20l-4.2-4.2"></path>
+          </svg>
+          <input id="time-search" type="text" inputmode="numeric" placeholder="Find by time · 18:21" />
+        </label>
+        <button id="time-search-button" class="mini-button" type="button">Find</button>
+        <button id="time-search-reset" class="mini-button mini-button--ghost" type="button">
+          Reset
+        </button>
+      </div>
+      <p id="console-search-status" class="console-search-status">Showing latest signals.</p>
+    </aside>
+
+    <header class="topbar">
+      <p class="eyebrow">messages sent nowhere</p>
+      <h1>SIDERA</h1>
+      <p class="brand-copy">Write it. Launch it. Let it drift.</p>
+    </header>
+
+    <section id="empty-hint" class="empty-hint" aria-live="polite">
+      <p>Write a message. It will not arrive.</p>
+    </section>
+
+    <nav class="action-dock" aria-label="Main actions">
+      <button
+        id="toggle-clean"
+        class="icon-action"
+        type="button"
+        aria-label="Toggle clean mode"
+        title="Toggle clean mode"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 8h16" />
+          <path d="M8 4v16" />
+          <path d="M16 4v16" />
+        </svg>
+      </button>
+      <button
+        id="toggle-sound"
+        class="icon-action"
+        type="button"
+        aria-label="Toggle sound"
+        title="Toggle sound"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 10h4l5-4v12l-5-4H5z" />
+          <path d="M18 9c1.4 1 2 2.1 2 3s-.6 2-2 3" />
+        </svg>
+      </button>
+      <button
+        id="toggle-console"
+        class="icon-action"
+        type="button"
+        aria-label="Hide console"
+        title="Hide console"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h16" />
+          <path d="M4 12h16" />
+          <path d="M4 18h10" />
+        </svg>
+      </button>
+      <button
+        id="focus-latest"
+        class="icon-action"
+        type="button"
+        aria-label="Go to latest star"
+        title="Go to latest star"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3l2.6 5.4L20 11l-5.4 2.6L12 19l-2.6-5.4L4 11l5.4-2.6L12 3z" />
+        </svg>
+      </button>
+      <button
+        id="random-signal"
+        class="icon-action"
+        type="button"
+        aria-label="Catch random signal"
+        title="Catch random signal"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 7h3l2.5 3 3-3H21" />
+          <path d="M17 7h4v4" />
+          <path d="M7 17h3l2.5-3 3 3H21" />
+          <path d="M17 17h4v-4" />
+        </svg>
+      </button>
+      <button
+        id="open-compose"
+        class="icon-action icon-action--primary"
+        type="button"
+        aria-label="Write a new signal"
+        title="Write a new signal"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 20l4.4-1 9.9-9.9-3.4-3.4L5 15.6 4 20z" />
+          <path d="M13.9 5.7l3.4 3.4" />
+        </svg>
+      </button>
+    </nav>
+
+    <div class="side-stack">
+      <aside class="side-panel status-panel">
+        <div class="panel-heading">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 19h16" />
+            <path d="M7 16V9" />
+            <path d="M12 16V5" />
+            <path d="M17 16v-3" />
+          </svg>
+          <p class="panel-label">FIELD STATUS</p>
+        </div>
+        <div class="metric-row">
+          <span>Signals</span>
+          <strong id="signal-count">0</strong>
+        </div>
+        <div class="metric-row">
+          <span>Sector</span>
+          <strong id="sector-count">00</strong>
+        </div>
+        <p class="panel-copy">
+          Tiny stars fill the void. Larger stars hold actual messages. Tap one to read it.
+        </p>
+      </aside>
+
+      <aside class="side-panel ritual-panel">
+        <div class="panel-heading">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3l2.4 4.8L19 10l-4.6 2.2L12 17l-2.4-4.8L5 10l4.6-2.2L12 3z" />
+          </svg>
+          <p class="panel-label">RITUAL</p>
+        </div>
+        <ol class="legend-list">
+          <li>Write what should not stay in your head.</li>
+          <li>A destination star is assigned automatically on launch.</li>
+          <li>Launch it and watch it become a brighter point in the field.</li>
+        </ol>
+      </aside>
+    </div>
+
+    <section id="receipt-card" class="receipt-card hidden" aria-live="polite"></section>
+
+    <main class="universe-shell">
+      <section id="starfield" class="starfield" aria-label="Star map of drifting messages"></section>
+    </main>
+
+    <dialog id="compose-dialog" class="modal">
+      <form id="compose-form" class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="panel-label">NEW SIGNAL</p>
+            <h2>Launch into the void</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-compose aria-label="Close">
+            ×
+          </button>
+        </div>
+
+        <label class="field">
+          <span>Message</span>
+          <textarea
+            id="message-input"
+            name="message"
+            rows="6"
+            maxlength="280"
+            placeholder="For example: I still miss you, but I will not go back."
+            required
+          ></textarea>
+        </label>
+
+        <label class="field">
+          <span>Destination star</span>
+          <div id="destination-preview" class="auto-field"></div>
+          <p class="field-note">Assigned automatically when the signal is launched.</p>
+        </label>
+
+        <div class="helper-row">
+          <span id="message-length">0 / 280</span>
+          <span>No reply expected</span>
+        </div>
+
+        <p id="compose-status" class="form-status" aria-live="polite"></p>
+
+        <div class="modal-actions">
+          <button class="ghost-button" type="button" data-close-compose>Cancel</button>
+          <button id="compose-submit" class="primary-button" type="submit">Launch signal</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="signal-dialog" class="modal">
+      <article class="modal-card signal-card">
+        <div class="modal-header">
+          <div>
+            <p class="panel-label">DECODED MESSAGE</p>
+            <h2 id="signal-destination">Unknown star</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-signal aria-label="Close">
+            ×
+          </button>
+        </div>
+
+        <div class="signal-meta">
+          <span id="signal-distance">0 ly</span>
+          <span id="signal-timestamp">just now</span>
+        </div>
+
+        <p id="signal-text" class="signal-text"></p>
+      </article>
+    </dialog>
+
+    <template id="console-row-template">
+      <article class="console-row">
+        <span class="console-time"></span>
+        <p class="console-message"></p>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
